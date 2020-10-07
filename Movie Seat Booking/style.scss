@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #242333;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+}
+
+.movie-container {
+  margin: 20px 0;
+
+  select {
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 5px 15px 5px 15px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+.container {
+  perspective: 1000px;
+  margin: 30px;
+}
+
+.seat {
+  background-color: #444451;
+  height: 12px;
+  width: 15px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  &.selected {
+    background-color: #6feaf6;
+  }
+
+  &.occupied {
+    background-color: #ffffff;
+  }
+
+  // This selects every 2nd class="seat"
+  &:nth-of-type(2) {
+    margin-right: 18px;
+  }
+
+  // This selects every 2nd class="seat"
+  &:nth-last-of-type(2) {
+    margin-left: 18px;
+  }
+
+  // pseudo selecter, seat class that do not have occupied in it
+  &:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
+
+  // pseudo selecter, if in the showcase container you have seat class that is not occupied
+  .showcase &:hover {
+    cursor: default;
+    transform: scale(1);
+  }
+}
+
+.showcase {
+  background: rgba($color: #000000, $alpha: 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #777;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+
+    small {
+      margin-left: 2px;
+    }
+  }
+}
+
+.row {
+  display: flex;
+}
+
+.screen {
+  background-color: #ffffff;
+  height: 70px;
+  width: 100%;
+  margin: 15px 0;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba($color: #ffffff, $alpha: 0.7);
+}
+
+.text {
+  margin: 5px 0;
+  span {
+    color: #6feaf6;
+  }
+}
